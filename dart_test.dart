@@ -1,11 +1,11 @@
 // 1. --------------------------------- INTRO ------------------------------------
 //Entry Point
 // void main(){
-  
+
 //   var name = "Baraka";
 //   var age = 37;
 //   const height = 1.54;
-  
+
 //   describe(name, age, height);
 //   print("--------------------");
 //   describe("Georges", 27, 1.69);
@@ -15,7 +15,7 @@
 //   print("--------------------");
 //   final newLine2 = describe2(height: 1.66, name:'Mahili', age:36 );
 //   print(newLine2);
-  
+
 // }
 
 // // Function that returns nothing starts with Void:
@@ -32,14 +32,13 @@
 // // Arrow Functions
 // String describe2({String name, int age, double height = 0.0}) => "Hello, I'm $name. I'm $age years old. I'm $height meters tall";
 
-
 // //2. -----------------------------------------FUNCTIONS AND CLASSES --------------------------------
 // void main(){
-  
+
 // //   var name = "Baraka";
 // //   var age = 37;
 // //   const height = 1.54;
-  
+
 // //   describe(name, age, height);
 // //   print("--------------------");
 // //   describe("Georges", 27, 1.69);
@@ -49,22 +48,22 @@
 // //   print("--------------------");
 // //   final newLine2 = describe2(height: 1.66, name:'Mahili', age:36 );
 // //   print(newLine2);
-  
+
 //   // Create an instance of a class:
 //   final person = Person(name: 'Georges', age: 33, height:1.54);
 //   person.name = 'Georges';
 //   person.age = 37;
 //   print(person.name);
 //   print(person.age);
-  
+
 //   person.describe();
-  
+
 //   final employee = Employee(name: 'Georges', age: 33, height:1.54, taxCode: 'AB12', salary:50000);
 //   final sayHiString = employee.sayHi();
 //   print(sayHiString);
 //   print("--------------------");
 //   print(employee.toString());
-  
+
 // }
 
 // //Definining Classes:
@@ -73,7 +72,7 @@
 //   String name; // types must be declared when in class
 //   int age;
 //   double height;
-  
+
 //   // Function that returns nothing starts with Void:
 //   void describe() {
 //     print("Hello, I'm $name");
@@ -87,10 +86,10 @@
 //   }
 // 	// Arrow Functions
 // 	String describe2() => "Hello, I'm $name. I'm $age years old. I'm $height meters tall";
-  
+
 //   // Returns hi
 //   String sayHi() => 'Hello, call me $name';
-  
+
 //   // Ovveride a dart method such as .toString()
 //   @override
 //   String toString() => 'I am overring the toString object method';
@@ -171,7 +170,7 @@
 //   primeNumbers.addAll([11, 13,17, 19]);//pushing new values to the list (or array);
 //   primeNumbers.add(23);//pushing one value to the list;
 //   print(primeNumbers);
-  
+
 //   // Map...or as we call it in JS: Object
 //   var person = {
 //     'name': 'Baraka',
@@ -184,77 +183,112 @@
 //   person['weight'] = 60;// Add key value to the map
 //   print(person['weight']); // 60 ...because the key has been added
 //   print(person.containsKey('name'));//returns true
-  
+
 //   // Generics:  this is a way for improving type safety...safer code
 //   // Define a list with types:
-  
+
 //   var primeNumbers1 = List(); // its like declaring primeNumbers1 = [];
 //   primeNumbers1.addAll([2, 3, 5, 7]);
 //   primeNumbers1.add('Baraka');// this can be added because we are not specifying that our primeNumbers should only accept int
 //   print(primeNumbers1);
-  
+
 //   var primeNumbers2 = List<int>(); // Here, we are explicitely saying that our List should only accept integers...not string;
 //   primeNumbers2.addAll([2, 3, 5, 7]);
 //   //primeNumbers2.add('Baraka');// this can NOT be added because we are specifying that our primeNumbers2 should only accept int
 //   primeNumbers2.add(11);// this can be added because we are specifying that our primeNumbers2 should only accept int
 //   print(primeNumbers2);
-  
+
 //    var person1 = <String, dynamic>{//here, we are saying that the map will have a key of type String, and the key value can be of any type
 //     'name': 'Baraka',
 //     'age': 34,
 //     'height': 1.54
 //   };
 //   print(person1['name']);
-  
+
 //   // function that returns first 4 prime numbers
 //   List<int> getFourPrimeNumbers() => [2, 3, 4, 7];//this function can only return a list of integers.
-  
-    
+
 // }
 
-// 5. ---------------------- Control Flow -----------------------
+// // 5. ---------------------- Control Flow -----------------------
+// void main() {
+//   printOddEven(5);
+//   printOddEven2(2);
+//   final values = [1, 3, 5, 7, 8, 9, 5];
+//   print('Sum is ${sum(values)}');
+// }
+
+// // 1. If Statements
+// // a function that prints whether a value is even or odd
+// void printOddEven(int value) {
+//   if(value % 2 == 0) {
+//     print('$value is even');
+//   } else {
+//     print('$value is odd');
+//   }
+// }
+// // Shorter version using a ternary operator:
+// void printOddEven2(int value) {
+//   final typeOfValue = (value % 2 == 0) ? 'even' : 'odd';
+//   print('$value is $typeOfValue');
+// }
+
+// //2. While loops
+// // a function that returns an integer, it takes in a list (array) of integers..this functions adds up all the values in a list
+// int sum(List<int> values) {
+// //   int i = 0;
+// //   int result = 0;
+//   //while loop
+// //   while(i < values.length) {
+// //     result += values[i];
+// //     i++;
+// //   }
+//   //for loop
+// //   for(int i=0; i < values.length; i++) {
+// //     result += values[i];
+// //   }
+//   //for in
+// //   for (int value in values) {
+// //     result += value;
+// //   }
+// //   return result;
+
+//   // Can alos use one line to add everything in the list...this is called reduce in JS
+//   return values.fold(0, (result, value) => result + value);//this is like array.reduce((a, b) => a+b)
+// }
+
+// 6. ----------------------- Enummeration -------------------
+// These are used when we have a fine set of values that we wish to represent:
 void main() {
-  printOddEven(5);
-  printOddEven2(2);
-  final values = [1, 3, 5, 7, 8, 9, 5];
-  print('Sum is ${sum(values)}');
+  printError(NetworkError.resourceNotAvailable);
 }
 
-// 1. If Statements
-// a function that prints whether a value is even or odd
-void printOddEven(int value) {
-  if(value % 2 == 0) {
-    print('$value is even');
-  } else {
-    print('$value is odd');
+enum NetworkError {
+  badUrl,
+  timout,
+  resourceNotAvailable,
+}
+
+void printError(NetworkError error) {
+  // using if/else
+  // if (error == NetworkError.badUrl) {
+  //   print('Bad url');
+  // } else if (error == NetworkError.timout) {
+  //   print('Timout');
+  // } else if (error == NetworkError.resourceNotAvailable) {
+  //   print('Resource not available');
+  // }
+
+  // using Switch statement...just like JS
+  switch (error) {
+    case NetworkError.badUrl:
+      print('Bad url');
+      break;
+    case NetworkError.timout:
+      print('Timout');
+      break;
+    case NetworkError.resourceNotAvailable:
+      print('Resource not available');
+      break;
   }
-}
-// Shorter version using a ternary operator:
-void printOddEven2(int value) {
-  final typeOfValue = (value % 2 == 0) ? 'even' : 'odd';
-  print('$value is $typeOfValue');
-}
-
-//2. While loops
-// a function that returns an integer, it takes in a list (array) of integers..this functions adds up all the values in a list
-int sum(List<int> values) {
-//   int i = 0;
-//   int result = 0;
-  //while loop
-//   while(i < values.length) {
-//     result += values[i];
-//     i++;
-//   }
-  //for loop
-//   for(int i=0; i < values.length; i++) {
-//     result += values[i];
-//   }
-  //for in
-//   for (int value in values) {
-//     result += value;
-//   }
-//   return result;
-  
-  // Can alos use one line to add everything in the list...this is called reduce in JS
-  return values.fold(0, (result, value) => result + value);//this is like array.reduce((a, b) => a+b)
 }
