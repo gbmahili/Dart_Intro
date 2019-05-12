@@ -2,7 +2,8 @@
 main() {
   var deck = new Deck();
   deck.shuffle();
-  print(deck.toString());
+  print(deck.cardWithSuit('Diamonds'));
+
 }
 class Deck {
   // An array of cards
@@ -29,6 +30,12 @@ class Deck {
 
   shuffle() {
     cards.shuffle();
+  }
+
+  cardWithSuit(String suit) {
+    return cards.where((e) {
+      return e.suit == suit;
+    });
   }
 }
 
