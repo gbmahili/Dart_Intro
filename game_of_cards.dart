@@ -31,11 +31,15 @@ class Deck {
   shuffle() {
     cards.shuffle();
   }
-
+  // Long format
+  // cardWithSuit(String suit) {
+  //   return cards.where((e) {//.where method returns a list..its just the filter in JS
+  //     return e.suit == suit;
+  //   });
+  // }
+  //Short format: 
   cardWithSuit(String suit) {
-    return cards.where((e) {
-      return e.suit == suit;
-    });
+    return cards.where((e) => e.suit == suit);
   }
 }
 
