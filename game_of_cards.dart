@@ -1,10 +1,13 @@
-
 main() {
   var deck = new Deck();
-  deck.shuffle();
-  print(deck.cardWithSuit('Diamonds'));
+  // deck.shuffle();
+  // print(deck.cardWithSuit('Diamonds'));
+  print(deck);
+  print(deck.deal(5));
+  print(deck);
 
 }
+
 class Deck {
   // An array of cards
   List<Card> cards = <Card>[];
@@ -40,6 +43,12 @@ class Deck {
   //Short format: 
   cardWithSuit(String suit) {
     return cards.where((e) => e.suit == suit);
+  }
+
+  deal(int handSize) {
+    var hand = cards.sublist(0, handSize);//take from index zero to the size provided...
+    cards.sublist(handSize);// take from handsize all the way to the end
+    return hand;
   }
 }
 
