@@ -10,9 +10,9 @@ main() {
   // print(deck);
 
   // Removing cards
-  print(deck);
+  print('Line 13: $deck'); // will print with Two of Diamonds included
   deck.removeCard("Diamonds", "Two");
-  print(deck);
+  print('Line 15: $deck');// will print without Two of Diamonds
 
 }
 
@@ -28,7 +28,8 @@ class Deck {
 
     for (var suit in suits) {
       for (var rank in ranks) {
-        var card = new Card(rank, suit);
+        // var card = new Card(rank, suit); // The order in which the two argument is passed in matters a lot.
+        var card = new Card(suit:suit, rank:rank,);// using with named arguments...the order of argument no longer matters
         cards.add(card);
       }
     }
@@ -66,7 +67,8 @@ class Deck {
 class Card {
   String suit;
   String rank;
-  Card(this.rank, this.suit);
+  //Card(this.rank, this.suit); // The oder in which these two argumetents will be passed in matters a lot
+  Card({this.rank, this.suit}); //this is a constructor with named arguments...the order in which arguments will be passed in does not matter
   @override
   String toString() {
     return '$rank of $suit';
