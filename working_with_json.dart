@@ -16,10 +16,12 @@ void main() {
   print(imageModel.id);
 
   /**
-   * As you can see, if we had a json containing about keys, we will have to pass all those keys in our ImageModel:
-   *  = new ImageModel(parsedJson['id'], parsedJson['url'], parsedJson['some_other_id...etc]);
+   * As you can see, if we had a json containing about keys, 
+   * we will have to pass all those keys in our ImageModel:
+   *  var xyz = new ImageModel(parsedJson['id'], parsedJson['url'], parsedJson['some_other_id...etc]);
    * 
-   * This is where named contructors come in handy...it is impleted in the class as a second constructor or first if you wish
+   * This is where named contructors come in handy...it is impleted in the class as a 
+   * second constructor or first if you wish
    * and defines all keys that will be needed when called
    */
   var anotherImageModel = new ImageModel.fromJson(parsedJson);
