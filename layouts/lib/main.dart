@@ -20,19 +20,17 @@ class MyApp extends StatelessWidget {
             // padding: EdgeInsets.only(top: 24),
             // alignment: Alignment.center,
             // width: 200,
-            decoration: BoxDecoration(
-              border: Border.all(width: 3.0, color: Colors.red),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(5.0) //         <--- border radius here
-                  ),
-            ),
+            // decoration: BoxDecoration(
+            //   border: Border.all(width: 3.0, color: Colors.red),
+            //   borderRadius: BorderRadius.all(
+            //       Radius.circular(5.0) //         <--- border radius here
+            //       ),
+            // ),
             child: Demo(),
           ),
         ));
   }
 }
-
-
 
 class Square extends StatelessWidget {
   final color;
@@ -55,24 +53,114 @@ class Square extends StatelessWidget {
   }
 }
 
+// Using Columns or Rows:
 // class Demo extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
 //     return Square();
 //   }
 // }
+// class Demo extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       mainAxisSize: MainAxisSize.min,//similar to flex:1 if set to .max
+//       mainAxisAlignment: MainAxisAlignment.spaceAround,//similar to justifyContent
+//       crossAxisAlignment: CrossAxisAlignment.center, // similar to alignItems
+//       children: <Widget>[
+//       Square(),
+//       Square(size: 200.0,),
+//       Square(),
+//       Square(),
+//     ],);
+//   }
+// }
+
+// Apply your own direction using FLEX widget
+// class Demo extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Flex(
+//       //direction: Axis.horizontal,//just like direction of 'row' in RN
+//       direction:Axis.vertical,//just like direction of column
+//       mainAxisSize: MainAxisSize.min,//similar to flex:1 if set to .max
+//       mainAxisAlignment: MainAxisAlignment.spaceAround,//similar to justifyContent
+//       crossAxisAlignment: CrossAxisAlignment.center, // similar to alignItems
+//       children: <Widget>[
+//       Square(),
+//       Square(size: 200.0,),
+//       Square(),
+//       Square(),
+//     ],);
+//   }
+// }
+
+// Using Expanding to make some children to take the remaining of the space
+// class Demo extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: <Widget>[
+//         Expanded(
+//           flex: 1,
+//           child: Square(),
+//         ), // More like flex:1 or flex:grow...take as much space as you can
+//         Square(),
+//         Square(),
+//         Expanded(
+//           flex: 2,
+//           child: Square(),
+//         ),
+//       ],
+//     );
+//   }
+// }
+
 class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,//similar to flex:1 if set to .max
-      mainAxisAlignment: MainAxisAlignment.spaceAround,//similar to justifyContent
-      crossAxisAlignment: CrossAxisAlignment.center, // similar to alignItems
-      children: <Widget>[
-      Square(),
-      Square(size: 200.0,),
-      Square(),
-      Square(),
-    ],);
+    return Column(children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(3.0),
+              child: Text(
+                'Home',
+              ),
+              height: 40.0,
+              color: Colors.blue,
+            ),
+          ),
+          Expanded(
+            child: Container(
+              child: Text(
+                'Home',
+              ),
+              height: 40.0,
+              color: Colors.blue,
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(3.0),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(3.0),
+              child: Text(
+                'Home',
+              ),
+              height: 40.0,
+              color: Colors.blue,
+            ),
+          ),
+        ],
+      ),
+      Row(children: <Widget>[
+        Text('More')
+      ],),
+    ]);
   }
 }
