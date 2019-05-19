@@ -226,27 +226,78 @@ class DemoCard extends StatelessWidget {
             color: Colors.red,
             child: Icon(Icons.ac_unit),
           ),
-          Text(
-            'Baraka Card 1',
-            style: TextStyle(fontSize: 25),
-          ),
-          Text(
+          _createText('Baraka', 25),
+          _createText(
             'This is a card created from scratch and you can tell how it scales up',
-            style: TextStyle(fontSize: 16),
+            16,
           ),
           Container(
             margin: EdgeInsets.only(top: 32),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                FlatButton(child: Text('Click Me!',),color: Colors.red,onPressed: (){},),
-                FlatButton(child: Text('Click Me!',),color: Colors.green,onPressed: (){},),
-                FlatButton(child: Text('Click Me!',),color: Colors.blue,onPressed: (){},),
+                Btn(
+                  btnTitle: 'Login',
+                  color: '#00FFAA',
+                  onPressed: () => _login(),
+                ),
+                FlatButton(
+                  child: Text(
+                    'Click Me!',
+                  ),
+                  color: Colors.green,
+                  onPressed: () {},
+                ),
+                FlatButton(
+                  child: Text(
+                    'Click Me!',
+                  ),
+                  color: Colors.blue,
+                  onPressed: () {},
+                ),
               ],
             ),
           )
         ],
       ),
+    );
+  }
+}
+
+_login() {
+  print('Login here');
+}
+
+Text _createText(String text, double size) {
+  return Text(
+    text,
+    style: TextStyle(fontSize: size),
+  );
+}
+
+class HexColor extends Color {
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll("#", "");
+    if (hexColor.length == 6) {
+      hexColor = "FF" + hexColor;
+    }
+    return int.parse(hexColor, radix: 16);
+  }
+
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+}
+
+class Btn extends StatelessWidget {
+  final String btnTitle;
+  final String color;
+  final onPressed;
+  Btn({this.btnTitle, this.color, this.onPressed});
+  @override
+  Widget build(BuildContext context) {
+    return FlatButton(
+      child: Text(btnTitle),
+      color: HexColor(color),
+      onPressed: onPressed,
     );
   }
 }
