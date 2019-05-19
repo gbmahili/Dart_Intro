@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//https://www.youtube.com/watch?v=u0e2L5yoxFI
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -116,51 +116,82 @@ class Square extends StatelessWidget {
 //   }
 // }
 
+// class Demo extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(children: [
+//       Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: <Widget>[
+//           Expanded(
+//             child: Container(
+//               alignment: Alignment.center,
+//               margin: EdgeInsets.all(3.0),
+//               child: Text(
+//                 'Home',
+//               ),
+//               height: 40.0,
+//               color: Colors.blue,
+//             ),
+//           ),
+//           Expanded(
+//             child: Container(
+//               child: Text(
+//                 'Home',
+//               ),
+//               height: 40.0,
+//               color: Colors.blue,
+//               alignment: Alignment.center,
+//               margin: EdgeInsets.all(3.0),
+//             ),
+//           ),
+//           Expanded(
+//             child: Container(
+//               alignment: Alignment.center,
+//               margin: EdgeInsets.all(3.0),
+//               child: Text(
+//                 'Home',
+//               ),
+//               height: 40.0,
+//               color: Colors.blue,
+//             ),
+//           ),
+//         ],
+//       ),
+//       Row(children: <Widget>[
+//         Text('More')
+//       ],),
+//     ]);
+//   }
+// }
+
+// Using Stack: Items are stack up against each other...like position in css
 class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Container(
+      height: MediaQuery.of(context).size.height, // device height
+      width: MediaQuery.of(context).size.width, // device width
+      // alignment: Alignment.center,
+      child: Stack(
         children: <Widget>[
-          Expanded(
-            child: Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.all(3.0),
-              child: Text(
-                'Home',
-              ),
-              height: 40.0,
+          Square(),
+          Positioned(
+            top: 20,
+            left: 20,
+            child: Square(
               color: Colors.blue,
             ),
           ),
-          Expanded(
-            child: Container(
-              child: Text(
-                'Home',
-              ),
-              height: 40.0,
-              color: Colors.blue,
-              alignment: Alignment.center,
-              margin: EdgeInsets.all(3.0),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.all(3.0),
-              child: Text(
-                'Home',
-              ),
-              height: 40.0,
-              color: Colors.blue,
+          Positioned(
+            top: 50,
+            left: 50,
+            child: Square(
+              color: Colors.red,
             ),
           ),
         ],
       ),
-      Row(children: <Widget>[
-        Text('More')
-      ],),
-    ]);
+    );
   }
 }
