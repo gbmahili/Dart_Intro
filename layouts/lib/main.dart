@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
           body: Container(
             // margin: EdgeInsets.all(70),
             // padding: EdgeInsets.only(top: 24),
-            alignment: Alignment.center,
-            width: 200,
+            // alignment: Alignment.center,
+            // width: 200,
             decoration: BoxDecoration(
               border: Border.all(width: 3.0, color: Colors.red),
               borderRadius: BorderRadius.all(
@@ -32,6 +32,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
 class Square extends StatelessWidget {
   final color;
   final size;
@@ -41,6 +43,7 @@ class Square extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.all(5.0),
       width: size,
       height: size,
       color: color,
@@ -52,9 +55,24 @@ class Square extends StatelessWidget {
   }
 }
 
+// class Demo extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Square();
+//   }
+// }
 class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Square();
+    return Column(
+      mainAxisSize: MainAxisSize.min,//similar to flex:1 if set to .max
+      mainAxisAlignment: MainAxisAlignment.spaceAround,//similar to justifyContent
+      crossAxisAlignment: CrossAxisAlignment.center, // similar to alignItems
+      children: <Widget>[
+      Square(),
+      Square(size: 200.0,),
+      Square(),
+      Square(),
+    ],);
   }
 }
