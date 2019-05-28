@@ -48,6 +48,9 @@ void main() {
 // Streams with HTML
 // import 'dart:html';
 
+/**
+<button>Click Me</button>
+ */
 // void main() {
 //   final ButtonElement button = querySelector('button');
   
@@ -61,7 +64,11 @@ void main() {
 //   );
 // }
 
-
+/**
+ * <h4>Guess The Word</h4>
+<input />
+<button>Click Me</button>
+ */
 // void main() {
 //   final ButtonElement button = querySelector('button');
 //   final InputElement input = querySelector('input');
@@ -72,5 +79,42 @@ void main() {
 //     .listen(
 //     	(event) => print('You got it'),//if true, print 'you got it'
 //     	onDone: () => print('Nope')// otherwise, print nope
+//   	);
+// }
+
+// Validate Email with STreams
+// Must import stream for this:
+// import 'dart:async';
+/**
+ * <h4>Enter your email</h4>
+<input /> <br/>
+<div></div>
+ */
+// void main() {
+//   final InputElement input = querySelector('input');//target input
+//   final DivElement div = querySelector('div'); //target div
+  
+//   // Watch for changes in an input
+// //   input.onInput
+// //     .listen(
+// //     (dynamic event) => print(event.target.value)
+// //   );
+  
+//   final validator = new StreamTransformer.fromHandlers(
+//   	handleData: (inputValue, sink) {
+//       if(inputValue.contains('@')) {
+//         sink.add(inputValue);
+//       } else {
+//         sink.addError('Enter a valid email');
+//       }
+//     }
+//   );
+  
+//   input.onInput
+//     .map((dynamic event) => event.target.value)
+//     .transform(validator)
+//     .listen(
+//     	(email) => div.innerHtml = '',
+//     	onError: (error) =>  div.innerHtml = error //// Set text in the div that was targetted
 //   	);
 // }
