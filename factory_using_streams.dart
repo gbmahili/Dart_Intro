@@ -44,3 +44,33 @@ void main() {
       onError: (err) => print(err) // Only when there was en error
     );
 }
+
+// Streams with HTML
+// import 'dart:html';
+
+// void main() {
+//   final ButtonElement button = querySelector('button');
+  
+//   button.onClick.timeout(
+//   	new Duration(seconds: 1),
+//     onTimeout: (sink) => sink.addError('You lost!!')
+//   )
+//     .listen(
+//   	(event) {},
+//     onError: (err) => print(err)
+//   );
+// }
+
+
+// void main() {
+//   final ButtonElement button = querySelector('button');
+//   final InputElement input = querySelector('input');
+  
+//   button.onClick// watch out for a click on the button
+//     .take( 4 ) // only take in 4 clicks
+//     .where((event) => input.value == 'banana') //every time there is a click, check if value entered is banana
+//     .listen(
+//     	(event) => print('You got it'),//if true, print 'you got it'
+//     	onDone: () => print('Nope')// otherwise, print nope
+//   	);
+// }
