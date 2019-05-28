@@ -23,8 +23,9 @@ void main() {
   final controller  = new StreamController();
   // StreamController comes with two methods:
   // 1. sink: This can be considered as our Order Taker from our chocolate cake analogy
-  
   final order = new Order('chocolate');
+  controller.sink.add(order);// add type to stream
+
   final baker = new StreamTransformer.fromHandlers(
     handleData: (cakeType, sink) {
       if(cakeType == 'chocolate') {
@@ -34,8 +35,6 @@ void main() {
       }
     }
   );
-  controller.sink.add(order);// add type to stream
-
   // 2. stream: This is the cake factory Order Inspector who will take off the type of the cake
   controller.stream
     .map((order)=> order.type)//using the stream, we check for the type and pass it to our baker
